@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise for Shristi ☁️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #ffb8d0;
+  --purple: #c8b5ff;
+  --dark: #453b63;
+  --white: #fffaff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg,#fce4ec,#eee5ff,#dff5ff);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .3; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.3); }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.card {
+  width: 100%;
+  max-width: 490px;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 30px;
+  padding: 35px 28px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(120,90,160,.15);
+  animation: appear .7s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.small-tag {
+  display: inline-block;
+  background: #f8e8ff;
+  padding: 7px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #9164b8;
+  margin-bottom: 18px;
+}
+
+.robot {
+  font-size: 75px;
+  margin: 10px 0 18px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #766d89;
+  margin-bottom: 18px;
+}
+
+.highlight {
+  color: #df77a7;
+  font-weight: 900;
+}
+
+button {
+  border: none;
+  background: linear-gradient(110deg,#f5a6c5,#bca5fa);
+  color: white;
+  padding: 14px 27px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 7px 18px rgba(190,130,200,.25);
+  margin: 6px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(190,130,200,.4);
+}
+
+button.secondary {
+  background: #f2eaff;
+  color: #8c70b3;
+  box-shadow: none;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+  animation: appear .5s ease;
+}
+
+.choice {
+  display: block;
+  width: 100%;
+  background: white;
+  color: #74628c;
+  border: 2px solid #f0e6ff;
+  box-shadow: none;
+  margin: 10px 0;
+  border-radius: 18px;
+  padding: 15px;
+}
+
+.choice:hover {
+  background: #fff0f7;
+  border-color: #e8b4d2;
+}
+
+.message-box {
+  background: linear-gradient(130deg,#fff0f7,#f1edff);
+  border-radius: 20px;
+  padding: 23px;
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.progress {
+  height: 6px;
+  background: #eee5fa;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#f5a6c5,#bca5fa);
+  transition: .5s;
+}
+
+.footer {
+  font-size: 11px;
+  color: #a69ab7;
+  margin-top: 25px;
+}
+
+.heart {
+  color: #f28db4;
+  font-size: 23px;
+}
+
+.final-note {
+  background: linear-gradient(135deg,#fff1f6,#f2edff);
+  border-radius: 22px;
+  padding: 23px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.final-note p {
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media(max-width:420px) {
+  .card { padding: 28px 20px; }
+  h1 { font-size: 26px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<div class="container">
+<div class="card">
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen1">
+  <div class="small-tag">A SPECIAL LITTLE PROJECT ✨</div>
+  <div class="robot">🤖</div>
+  <h1>Hey, <span class="highlight">Shristi!</span></h1>
+  <p>
+    Also known as <b>Barsha</b> ☁️<br>
+    A tiny digital character has something to show you.
+    Apparently, it has been waiting for you.
+  </p>
+  <div class="message-box">
+    ⚠️ A small warning:<br>
+    This website contains random smiles,
+    unexpected compliments and absolutely
+    unnecessary cuteness.
+  </div>
+  <button onclick="nextScreen(2)">Okay, let's see 👀</button>
+  <div class="footer">Made with a little creativity ✨</div>
+</section>
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
+  <div class="small-tag">LEVEL 01 • MOOD CHECK</div>
+  <div class="robot">🧸</div>
+  <h2>First things first...</h2>
+  <p>How is your day going, Barsha?</p>
+
+  <button class="choice" onclick="mood('Amazing! Keep that energy ✨')">
+    🌸 Pretty good!
+  </button>
+  <button class="choice" onclick="mood('Sending you a little extra happiness 💗')">
+    ☁️ Just okay.
+  </button>
+  <button class="choice" onclick="mood('Hope tomorrow feels a little lighter 🌷')">
+    🥺 Not really good.
+  </button>
+  <button class="choice" onclick="mood('Mystery mood detected. Interesting 😂')">
+    🤫 Classified information.
+  </button>
+
+  <div id="moodResult" class="message-box hidden"></div>
+  <button id="moodNext" class="hidden" onclick="nextScreen(3)">
+    Continue →
+  </button>
+</section>
+
+<!-- SCREEN 3 -->
+<section class="screen" id="screen3">
+  <div class="small-tag">LEVEL 02 • RANDOM FACT</div>
+  <div class="robot">🐼</div>
+  <h2>A little observation...</h2>
+  <p>
+    Sometimes, the smallest conversations
+    can make an ordinary day a little more interesting.
+  </p>
+
+  <div class="message-box">
+    And honestly, talking with you has been
+    one of those little things lately. 🌷
+    <br><br>
+    No big explanation. Just a nice little fact.
+  </div>
+
+  <button onclick="nextScreen(4)">Next level 🎮</button>
+</section>
+
+<!-- SCREEN 4 -->
+<section class="screen" id="screen4">
+  <div class="small-tag">LEVEL 03 • MINI QUIZ</div>
+  <div class="robot">🐱</div>
+  <h2>Important question!</h2>
+  <p>What is the most powerful thing in the universe?</p>
+
+  <button class="choice" onclick="quiz(false)">🚀 A rocket</button>
+  <button class="choice" onclick="quiz(false)">⚡ Electricity</button>
+  <button class="choice" onclick="quiz(true)">😊 A genuine smile</button>
+
+  <div id="quizResult" class="message-box hidden"></div>
+  <button id="quizNext" class="hidden" onclick="nextScreen(5)">
+    Unlock surprise 🔓
+  </button>
+</section>
+
+<!-- SCREEN 5 -->
+<section class="screen" id="screen5">
+  <div class="small-tag">BONUS UNLOCKED 🎁</div>
+  <div class="robot">🌷</div>
+  <h2>One little thing...</h2>
+
+  <div class="message-box">
+    Dear Shristi aka Barsha,
+    <br><br>
+    I don't know if you realise this, but you have
+    a way of making conversations feel nice.
+    <br><br>
+    These past few days of talking with you
+    have genuinely been lovely.
+    <br><br>
+    You're a pretty special person, and I just
+    wanted to appreciate that.
+    <br><br>
+    That's it. No hidden task, no difficult questions.
+    Just a little appreciation. 💗
+  </div>
+
+  <button onclick="nextScreen(6)">One last thing... ☁️</button>
+</section>
+
+<!-- SCREEN 6 -->
+<section class="screen" id="screen6">
+  <div class="small-tag">A LITTLE MESSAGE FOR YOU 💌</div>
+  <div class="robot">🌻</div>
+  <h2>Get well soon, Barsha!</h2>
+
+  <p>
+    I heard you're not feeling very well,
+    so this last part is especially for you.
+  </p>
+
+  <div class="final-note">
+    <p>Dear Shristi, 🌷</p>
+
+    <p>
+      Please take good care of yourself.
+      Get enough rest, stay hydrated and
+      don't forget to look after yourself.
+    </p>
+
+    <p>
+      I hope you feel better very soon
+      and get back to your usual happy self.
+    </p>
+
+    <p>
+      May your coming days be filled with
+      good health, peaceful moments,
+      happiness and lots of reasons to smile.
+    </p>
+
+    <p>
+      And one more thing...
+      I really enjoy talking with you.
+      I'm glad our paths crossed.
+      No pressure to respond to this in any
+      particular way. Just wanted you to know. 💗
+    </p>
+
+    <p style="text-align:right">
+      From,<br>
+      Your friendly digital troublemaker 🤖
+    </p>
+  </div>
+
+  <div class="heart">♡ ♡ ♡</div>
+  <p style="margin-top:15px">
+    End of this little adventure.<br>
+    Take care, Shristi! ☁️
+  </p>
+
+  <button onclick="restart()">Play again ↻</button>
+
+  <div class="footer">
+    Project Barsha • A little happiness on the internet
+  </div>
+</section>
+
+<div class="progress">
+  <div class="progress-fill" id="progress"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+// Floating stars
+const bg = document.getElementById("background");
+
+for(let i=0;i<35;i++){
+  const star = document.createElement("span");
+  star.className = "star";
+  star.innerHTML = ["✦","✧","⋆","♡"][Math.floor(Math.random()*4)];
+  star.style.left = Math.random()*100+"%";
+  star.style.top = Math.random()*100+"%";
+  star.style.fontSize = (10+Math.random()*15)+"px";
+  star.style.animationDelay = Math.random()*3+"s";
+  bg.appendChild(star);
+}
+
+// Screen navigation
+function nextScreen(number){
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
+  });
+
+  document.getElementById("screen"+number).classList.add("active");
+  document.getElementById("progress").style.width =
+    ((number-1)/5*100)+"%";
+}
+
+// Mood selection
+function mood(message){
+  const result = document.getElementById("moodResult");
+  result.innerHTML = message;
+  result.classList.remove("hidden");
+  document.getElementById("moodNext").classList.remove("hidden");
+}
+
+// Quiz
+function quiz(correct){
+  const result = document.getElementById("quizResult");
+
+  if(correct){
+    result.innerHTML =
+      "Correct! 🎉 You have excellent taste in answers. Keep that smile!";
+  } else {
+    result.innerHTML =
+      "Nice try! 😂 But I'm sticking with a genuine smile.";
+  }
+
+  result.classList.remove("hidden");
+  document.getElementById("quizNext").classList.remove("hidden");
+}
+
+// Restart
+function restart(){
+  document.getElementById("moodResult").classList.add("hidden");
+  document.getElementById("moodNext").classList.add("hidden");
+  document.getElementById("quizResult").classList.add("hidden");
+  document.getElementById("quizNext").classList.add("hidden");
+  nextScreen(1);
+}
+</script>
+
+</body>
+</html>
